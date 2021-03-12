@@ -4,8 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import theme from '../src/theme';
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
