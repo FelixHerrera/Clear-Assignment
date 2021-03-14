@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,9 +7,21 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import swrFetch from '../../common/swrFetch';
+import ClientDialog from '../Dialogs/ClientDialog';
 
 const OrganizationsTable = () => {
   const { data, isLoading, error } = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/organization');
+  const [open, setOpen] = useState(false);
+  const [id, setId] = useState(null);
+
+  const handleOnClick = (isOpen, clickedId) => {
+    setOpen(isOpen);
+    setId(clickedId);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   let content = <LinearProgress />;
   if (error) {
@@ -28,7 +40,10 @@ const OrganizationsTable = () => {
             </TableHead>
             <TableBody>
               {data.map((organization) => (
-                <TableRow key={organization.id}>
+                <TableRow
+                  key={organization.id}
+                  onClick={() => handleOnClick(true, organization.id)}
+                >
                   <TableCell component="th" scope="row">
                     {organization.name}
                   </TableCell>
@@ -39,6 +54,7 @@ const OrganizationsTable = () => {
             </TableBody>
           </Table>
         </TableContainer>
+        {open ? <ClientDialog open={open} id={id} onClose={() => handleClose()} /> : null }
       </>
     );
   }
