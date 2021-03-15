@@ -10,7 +10,7 @@ import ErrorMessage from '../../ErrorMessage';
 import swrFetch from '../../../common/swrFetch';
 
 const MemberList = () => {
-  const memberData = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/member');
+  const memberData = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/members');
   const organizationData = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/organization');
 
   let content = <LinearProgress />;
