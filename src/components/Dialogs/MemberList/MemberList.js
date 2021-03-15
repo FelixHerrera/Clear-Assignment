@@ -4,15 +4,16 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Typography from '@material-ui/core/Typography';
+import ErrorMessage from '../../ErrorMessage';
 import swrFetch from '../../../common/swrFetch';
 
 const MemberList = ({ id }) => {
-  const { data, error, isLoading } = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/members');
+  const { data, isError, isLoading } = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/members');
 
   let content = <LinearProgress />;
 
-  if (error) {
-    content = <div>Error</div>;
+  if (isError) {
+    content = <ErrorMessage />;
   } else if (!isLoading) {
     const memberData = data.filter((member) => {
       const orgId = member.organization_id;

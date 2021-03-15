@@ -8,9 +8,10 @@ import TableRow from '@material-ui/core/TableRow';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import swrFetch from '../../common/swrFetch';
 import ClientDialog from '../Dialogs/ClientDialog';
+import ErrorMessage from '../ErrorMessage';
 
 const OrganizationsTable = () => {
-  const { data, isLoading, error } = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/organization');
+  const { data, isLoading, isError } = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/organization');
   const [open, setOpen] = useState(false);
   const [id, setId] = useState(null);
 
@@ -24,8 +25,8 @@ const OrganizationsTable = () => {
   };
 
   let content = <LinearProgress />;
-  if (error) {
-    content = <div>Could not load data.</div>;
+  if (isError) {
+    content = <ErrorMessage />;
   } else if (!isLoading) {
     content = (
       <>

@@ -6,16 +6,16 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import Typography from '@material-ui/core/Typography';
 import MemberList from './MemberList/MemberList';
-
+import ErrorMessage from '../ErrorMessage';
 import swrFetch from '../../common/swrFetch';
 
 const ClientDialog = ({ id, open, onClose }) => {
-  const { data, error } = swrFetch(`https://5fe220547a9487001768215e.mockapi.io/api/v1/organization/${id}`);
+  const { data, isError } = swrFetch(`https://5fe220547a9487001768215e.mockapi.io/api/v1/organization/${id}`);
 
   let content = <LinearProgress />;
 
-  if (error) {
-    content = <div>Error</div>;
+  if (isError) {
+    content = <ErrorMessage />;
   } else if (data) {
     content = (
       <Dialog aria-labelledby="simple-dialog-title" open={open} onClose={() => onClose()}>
