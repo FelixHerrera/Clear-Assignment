@@ -29,7 +29,6 @@ const MemberList = ({ id }) => {
             <ListItem key={member.id}>
               <Typography>
                 {member.name}
-                {' '}
               </Typography>
             </ListItem>
           ))}
