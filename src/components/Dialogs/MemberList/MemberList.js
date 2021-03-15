@@ -5,6 +5,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Typography from '@material-ui/core/Typography';
 import ErrorMessage from '../../ErrorMessage';
+import NotFoundMessage from '../../NotFoundMessage';
 import swrFetch from '../../../common/swrFetch';
 
 const MemberList = ({ id }) => {
@@ -20,20 +21,24 @@ const MemberList = ({ id }) => {
       return orgId.substring(orgId.indexOf(' ') + 1) === id;
     });
     content = (
-      <>
-        <ListSubheader component="div" id="nested-list-subheader">
-          Members
-        </ListSubheader>
-        <List>
-          {memberData.map((member) => (
-            <ListItem key={member.id}>
-              <Typography>
-                {member.name}
-              </Typography>
-            </ListItem>
-          ))}
-        </List>
-      </>
+      memberData.length > 0
+        ? (
+          <>
+            <ListSubheader component="div" id="nested-list-subheader">
+              Members
+            </ListSubheader>
+            <List>
+              {memberData.map((member) => (
+                <ListItem key={member.id}>
+                  <Typography>
+                    {member.name}
+                  </Typography>
+                </ListItem>
+              ))}
+            </List>
+          </>
+        ) : (<NotFoundMessage />)
+
     );
   }
   return content;

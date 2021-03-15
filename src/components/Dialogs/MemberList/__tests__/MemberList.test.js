@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
 import MemberList from '../MemberList';
 import ErrorMessage from '../../../ErrorMessage';
 import * as swr from '../../../../common/swrFetch';
@@ -40,5 +41,16 @@ describe('MemberList component', () => {
     const wrapper = shallow(<MemberList id="1" />);
     const memberNameWrapper = wrapper.find(Typography);
     expect(memberNameWrapper.text()).toEqual('Destin Fahey');
+  });
+
+  it('should not render the list of members if no error and no data is returned', () => {
+    swr.default = jest.fn().mockReturnValueOnce({
+      data: [],
+      isError: false,
+      isLoading: false,
+    });
+    const wrapper = shallow(<MemberList id="1" />);
+    const listWrapper = wrapper.find(List);
+    expect(listWrapper).toHaveLength(0);
   });
 });
