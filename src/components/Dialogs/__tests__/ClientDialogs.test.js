@@ -7,6 +7,7 @@ import ErrorMessage from '../../ErrorMessage';
 import * as swr from '../../../common/swrFetch';
 import MemberList from '../MemberList/MemberList';
 import NotFoundMessage from '../../NotFoundMessage';
+import Dialog from '@material-ui/core/Dialog';
 
 describe('ClientDialog component', () => {
   it('renders', () => {
@@ -57,6 +58,28 @@ describe('ClientDialog component', () => {
     const memberListWrapper = wrapper.find(MemberList);
     expect(listItemWrapper).toHaveLength(7);
     expect(memberListWrapper).toHaveLength(1);
+  });
+
+  it('The dialog should call the close prop function when on close is triggered', () => {
+    swr.default = jest.fn().mockReturnValueOnce({
+      data: {
+        id: '1',
+        created_at: '2020-10-06T20:33:33.956Z',
+        name: 'Schulist - Lind',
+        headcount: 69,
+        is_public: true,
+        address_1: '714 Josefa Inlet',
+        city: 'South Brendabury',
+        zip_code: '69722-8987',
+        state: 'MS',
+      },
+      isError: false,
+      isLoading: false,
+    });
+    const onCloseMock = jest.fn();
+    const wrapper = shallow(<ClientDialog id="1" open onClose={onCloseMock} />);
+    wrapper.find(Dialog).simulate('close');
+    expect(onCloseMock).toBeCalled();
   });
 
   it('should render not found if the company is not found', () => {
