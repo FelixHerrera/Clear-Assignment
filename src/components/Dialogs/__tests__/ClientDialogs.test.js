@@ -2,12 +2,12 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import ListItem from '@material-ui/core/ListItem';
+import Dialog from '@material-ui/core/Dialog';
 import ClientDialog from '../ClientDialog';
 import ErrorMessage from '../../ErrorMessage';
 import * as swr from '../../../common/swrFetch';
 import MemberList from '../MemberList/MemberList';
 import NotFoundMessage from '../../NotFoundMessage';
-import Dialog from '@material-ui/core/Dialog';
 
 describe('ClientDialog component', () => {
   it('renders', () => {
