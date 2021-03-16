@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import ErrorMessage from '../../ErrorMessage';
+import NotFoundMessage from '../../NotFoundMessage';
 import swrFetch from '../../../common/swrFetch';
 
 const MemberList = () => {
@@ -18,7 +19,6 @@ const MemberList = () => {
   if (memberData.isError || organizationData.isError) {
     content = <ErrorMessage />;
   } else if (!memberData.isLoading && !organizationData.isLoading) {
-      console.log(memberData);
     const managerList = memberData.data.filter((member) => member.title === 'Manager');
     managerList.forEach((manager) => {
       manager.existingClient = false;
@@ -31,35 +31,37 @@ const MemberList = () => {
         }
       }
     });
-    content = (
-      <>
-        <TableContainer>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell> Name </TableCell>
-                <TableCell> Company Name </TableCell>
-                <TableCell> Phone Number </TableCell>
-                <TableCell> Existing Client </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {managerList.map((manager) => (
-                <TableRow
-                  key={manager.id}
-                >
-                  <TableCell component="th" scope="row">
-                    {manager.name}
-                  </TableCell>
-                  <TableCell>{manager.companyName}</TableCell>
-                  <TableCell>{manager.phone_number}</TableCell>
-                  <TableCell>{manager.existingClient.toString()}</TableCell>
+    content = (managerList.length > 0
+      ? (
+        <>
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell> Name </TableCell>
+                  <TableCell> Company Name </TableCell>
+                  <TableCell> Phone Number </TableCell>
+                  <TableCell> Existing Client </TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </>
+              </TableHead>
+              <TableBody>
+                {managerList.map((manager) => (
+                  <TableRow
+                    key={manager.id}
+                  >
+                    <TableCell component="th" scope="row">
+                      {manager.name}
+                    </TableCell>
+                    <TableCell>{manager.companyName}</TableCell>
+                    <TableCell>{manager.phone_number}</TableCell>
+                    <TableCell>{manager.existingClient.toString()}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </>
+      ) : <NotFoundMessage />
     );
   }
   return content;
