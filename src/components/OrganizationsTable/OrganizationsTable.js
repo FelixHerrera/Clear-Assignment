@@ -9,6 +9,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import swrFetch from '../../common/swrFetch';
 import ClientDialog from '../Dialogs/ClientDialog';
 import ErrorMessage from '../ErrorMessage';
+import NotFoundMessage from '../NotFoundMessage';
 
 const OrganizationsTable = () => {
   const { data, isLoading, isError } = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/organization');
@@ -28,7 +29,7 @@ const OrganizationsTable = () => {
   if (isError) {
     content = <ErrorMessage />;
   } else if (!isLoading) {
-    content = (
+    content = (data.length ? (
       <>
         <TableContainer>
           <Table>
@@ -57,6 +58,7 @@ const OrganizationsTable = () => {
         </TableContainer>
         {open ? <ClientDialog open={open} id={id} onClose={() => handleClose()} /> : null }
       </>
+    ) : <NotFoundMessage />
     );
   }
   return content;

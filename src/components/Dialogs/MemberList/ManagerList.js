@@ -10,7 +10,7 @@ import ErrorMessage from '../../ErrorMessage';
 import NotFoundMessage from '../../NotFoundMessage';
 import swrFetch from '../../../common/swrFetch';
 
-const MemberList = () => {
+const ManagerList = () => {
   const memberData = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/members');
   const organizationData = swrFetch('https://5fe220547a9487001768215e.mockapi.io/api/v1/organization');
 
@@ -67,4 +67,4 @@ const MemberList = () => {
   return content;
 };
 
-export default MemberList;
+export default ManagerList;
