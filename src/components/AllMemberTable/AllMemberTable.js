@@ -34,6 +34,7 @@ const AllMemberTable = () => {
   if (memberData.isError || organizationData.isError) {
     content = <ErrorMessage />;
   } else if (!memberData.isLoading && !organizationData.isLoading) {
+    console.log(memberData.data)
     const { memberList } = memberData.data;
     const organizationList = organizationData.data;
 
