@@ -1,4 +1,4 @@
-Assignment for clear based on the following criteria, built using next.js, React, and material-ui. Project was generated using Node v14.16.0
+Assignment for clear based on the following criteria, built using next.js, React, and material-ui with tests written using Jest and Enzyme. Project was generated using Node v14.16.0
 
 As an Admin, I want a table that displays all the organizations we serve so that I can keep track of our clients.
 
@@ -38,3 +38,19 @@ For obtaining coverage:
 ```bash
 npm run test:coverage
 ```
+
+## Documentation of technologies
+
+[https://nextjs.org/docs](Next.js)
+
+[https://material-ui.com/](Material-ui)
+
+[https://reactjs.org/docs/getting-started.html](React)
+
+[https://swr.vercel.app/](SWR)
+
+[https://github.com/kriasoft/node-sqlite#readme](SQLite)
+
+[https://jestjs.io/docs/getting-started](Jest)
+
+[https://enzymejs.github.io/enzyme/docs/api/](Enzyme)
