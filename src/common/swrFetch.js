@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import useSWR, { mutate } from 'swr';
 
 const swrFetch = (url) => {

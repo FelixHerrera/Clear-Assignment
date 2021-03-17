@@ -128,7 +128,7 @@ describe('AllMemberDetails component', () => {
     wrapper.update();
     expect(wrapper.find(MemberDetails)).toHaveLength(1);
   });
-  it('should render a memberdetails component if the edit button is clicked', () => {
+  it('should not have a dialog open after onclose is called', () => {
     swr.default = jest.fn().mockReturnValue({
       data: [{
         id: '1',
