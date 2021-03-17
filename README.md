@@ -41,16 +41,16 @@ npm run test:coverage
 
 ## Documentation of technologies
 
-[https://nextjs.org/docs](Next.js)
+[Next.js](https://nextjs.org/docs)
 
-[https://material-ui.com/](Material-ui)
+[Material-ui](https://material-ui.com/)
 
-[https://reactjs.org/docs/getting-started.html](React)
+[React](https://reactjs.org/docs/getting-started.html)
 
-[https://swr.vercel.app/](SWR)
+[SWR](https://swr.vercel.app/)
 
-[https://github.com/kriasoft/node-sqlite#readme](SQLite)
+[SQLite](https://github.com/kriasoft/node-sqlite#readme)
 
-[https://jestjs.io/docs/getting-started](Jest)
+[Jest](https://jestjs.io/docs/getting-started)
 
-[https://enzymejs.github.io/enzyme/docs/api/](Enzyme)
+[Enzyme](https://enzymejs.github.io/enzyme/docs/api/)
