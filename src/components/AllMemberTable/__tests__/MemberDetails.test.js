@@ -1,6 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { shallow } from 'enzyme';
 import Input from '@material-ui/core/Input';
 import IconButton from '@material-ui/core/IconButton';
 import Dialog from '@material-ui/core/Dialog';
