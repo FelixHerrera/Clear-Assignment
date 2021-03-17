@@ -22,7 +22,7 @@
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "linebreak-style": 0,
         "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
-        "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["manager"] }],
+        "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["manager", "member"] }],
         "camelcase": 0
     },
     "ignorePatterns": ["**/*config*"]

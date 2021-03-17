@@ -1,4 +1,4 @@
-import useSWR from 'swr';
+import useSWR, { mutate } from 'swr';
 
 const swrFetch = (url) => {
   const fetcher = async (fetcherUrl) => {
@@ -23,5 +23,7 @@ const swrFetch = (url) => {
     isError: error,
   };
 };
+
+export const refetch = (url) => (mutate(url));
 
 export default swrFetch;

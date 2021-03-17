@@ -10,7 +10,7 @@ const getMembers = async (req, res) => {
   let status;
   if (req.method === 'POST') {
     try {
-      const { organization_id } = req.body;
+      const { organization_id } = JSON.parse(req.body);
       if (!organization_id) {
         throw new Error('Organization id not found!');
       }
