@@ -84,7 +84,13 @@ const AllMemberTable = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          {open ? <MemberDetails open={open} member={stateMember} onClose={() => handleClose()} /> : null }
+          {open ? (
+            <MemberDetails
+              open={open}
+              member={stateMember}
+              onClose={() => handleClose()}
+            />
+          ) : null }
         </>
       ) : <NotFoundMessage />
     );

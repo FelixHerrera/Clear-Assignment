@@ -8,7 +8,6 @@ import DoneIcon from '@material-ui/icons/Done';
 import Input from '@material-ui/core/Input';
 import IconButton from '@material-ui/core/IconButton';
 import PropTypes from 'prop-types';
-import NotFoundMessage from '../NotFoundMessage';
 
 const MemberDetails = ({ member, open, onClose }) => {
   const [orgId, setOrgId] = useState(member.organization_id);
@@ -23,35 +22,33 @@ const MemberDetails = ({ member, open, onClose }) => {
     setOrgId(e.target.value);
   };
   return (
-    member ? (
-      <Dialog aria-labelledby="simple-dialog-title" open={open} onClose={() => onClose()}>
-        <DialogTitle id="simple-dialog-title">Organization Information</DialogTitle>
-        <List>
-          <ListItem>
-            <Typography>
-              Name:
-              {' '}
-              {member.name}
-            </Typography>
-          </ListItem>
-          <ListItem>
-            <Typography>
-              Organization ID:
-            </Typography>
-            <Input
-              value={orgId}
-              onChange={(e) => handleOnChange(e)}
-            />
-            <IconButton
-              aria-label="done"
-              onClick={() => handleSubmit()}
-            >
-              <DoneIcon />
-            </IconButton>
-          </ListItem>
-        </List>
-      </Dialog>
-    ) : <NotFoundMessage />
+    <Dialog aria-labelledby="simple-dialog-title" open={open} onClose={() => onClose()}>
+      <DialogTitle id="simple-dialog-title">Organization Information</DialogTitle>
+      <List>
+        <ListItem>
+          <Typography>
+            Name:
+            {' '}
+            {member.name}
+          </Typography>
+        </ListItem>
+        <ListItem>
+          <Typography>
+            Organization ID:
+          </Typography>
+          <Input
+            value={orgId}
+            onChange={(e) => handleOnChange(e)}
+          />
+          <IconButton
+            aria-label="done"
+            onClick={() => handleSubmit()}
+          >
+            <DoneIcon />
+          </IconButton>
+        </ListItem>
+      </List>
+    </Dialog>
   );
 };
 
