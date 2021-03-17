@@ -1,4 +1,4 @@
-Assignment for clear based on the following criteria, built using next.js, React, and material-ui. 
+Assignment for clear based on the following criteria, built using next.js, React, and material-ui. Project was generated using Node v14.16.0
 
 As an Admin, I want a table that displays all the organizations we serve so that I can keep track of our clients.
 
