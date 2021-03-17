@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Header name="Dashboard" />
-      <Grid container justify="center" spacing={4} style={{ paddingTop: '10px' }}>
+      <Grid container justify="center" spacing={4} style={{ paddingTop: 10 }}>
         <Grid item xs={6}>
           <Paper style={{ textAlign: 'center' }}>
             <h2>All Organizations</h2>
