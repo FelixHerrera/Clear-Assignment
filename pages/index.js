@@ -1,41 +1,35 @@
+import Grid from '@material-ui/core/Grid';
 import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+import Paper from '@material-ui/core/Paper';
+import Header from '../src/components/Header/Header';
+import AllMemberTable from '../src/components/AllMemberTable/AllMemberTable';
+import ManagerList from '../src/components/Dialogs/MemberList/ManagerList';
+import OrganizationsTable from '../src/components/OrganizationsTable/OrganizationsTable';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Clear Assignment</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Felix Herrera assignment
-        </h1>
-
-        <div className={styles.grid}>
-          <Link href="/organizations">
-            <a href="/organizations" className={styles.card}>
-              <h3>Organizations &rarr;</h3>
-            </a>
-          </Link>
-
-          <Link href="/members">
-            <a href="/members" className={styles.card}>
-              <h3>Members &rarr;</h3>
-            </a>
-          </Link>
-
-          <Link href="/members/managers">
-            <a href="/members/managers" className={styles.card}>
-              <h3>Managers &rarr;</h3>
-            </a>
-          </Link>
-        </div>
-      </main>
-    </div>
+    <>
+      <Header name="Dashboard" />
+      <Grid container justify="center" spacing={4} style={{ paddingTop: '10px' }}>
+        <Grid item xs={6}>
+          <Paper style={{ textAlign: 'center' }}>
+            <h2>All Organizations</h2>
+            <OrganizationsTable />
+          </Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper style={{ textAlign: 'center' }}>
+            <h2>Manager List</h2>
+            <ManagerList />
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
+          <Paper style={{ textAlign: 'center' }}>
+            <h2>All Members</h2>
+            <AllMemberTable />
+          </Paper>
+        </Grid>
+      </Grid>
+    </>
   );
 }
